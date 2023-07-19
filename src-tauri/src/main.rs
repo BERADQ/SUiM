@@ -13,7 +13,7 @@ use std::io::{prelude::*, Cursor};
 use std::path::Path;
 use tauri::Manager;
 use window_shadows::set_shadow;
-use window_vibrancy::{apply_mica, apply_vibrancy, NSVisualEffectMaterial};
+use window_vibrancy::{apply_acrylic, apply_vibrancy, NSVisualEffectMaterial};
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 
@@ -127,8 +127,9 @@ fn main() {
             }
 
             #[cfg(target_os = "windows")]
-            apply_mica(&window, None).unwrap();
+            apply_acrylic(&window, None).unwrap();
 
+            window.set_decorations(true).unwrap();
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![get_file, write_file, image_base64])
