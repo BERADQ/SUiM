@@ -13,7 +13,7 @@ use std::io::{prelude::*, Cursor};
 use std::path::Path;
 use tauri::Manager;
 use window_shadows::set_shadow;
-use window_vibrancy::{apply_acrylic, apply_vibrancy, NSVisualEffectMaterial};
+use window_vibrancy::{apply_mica, apply_vibrancy, NSVisualEffectMaterial};
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 
@@ -118,8 +118,9 @@ fn main() {
                 .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
 
             #[cfg(target_os = "windows")]
-            apply_acrylic(&window, Some((18, 18, 18, 125)))
+            apply_mica(&window, Some(true))
                 .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
+
             // #[cfg(target_os = "windows")]
             // set_shadow(&window, true).expect("Unsupported platform!");
             Ok(())
