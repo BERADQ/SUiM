@@ -1,7 +1,7 @@
 <script lang="ts">
-  export let onclick: () => any;
-  export let base64: string;
-  export let iName: string;
+  export let onclick: () => any
+  export let base64: string
+  export let iName: string
 </script>
 
 <button class="main" on:click={onclick}>

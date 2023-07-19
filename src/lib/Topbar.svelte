@@ -1,31 +1,31 @@
 <script lang="ts">
-  import {exit} from '@tauri-apps/api/process';
-  import {appWindow} from '@tauri-apps/api/window';
+  import { exit } from '@tauri-apps/api/process'
+  import { appWindow } from '@tauri-apps/api/window'
 </script>
 
 <div class="ww">
   <div data-tauri-drag-region class="main"></div>
   <button
-      class="i cb"
-      on:click={() => {
-      appWindow.minimize();
-    }}>–
-  </button
-  >
+    class="i cb"
+    on:click={() => {
+      appWindow.minimize()
+    }}
+    >–
+  </button>
   <button
-      class="b cb"
-      on:click={() => {
-      appWindow.toggleMaximize();
-    }}>▢
-  </button
-  >
+    class="b cb"
+    on:click={() => {
+      appWindow.toggleMaximize()
+    }}
+    >▢
+  </button>
   <button
-      class="x cb"
-      on:click={() => {
-      exit();
-    }}>⨉
-  </button
-  >
+    class="x cb"
+    on:click={() => {
+      exit()
+    }}
+    >⨉
+  </button>
 </div>
 
 <style lang="postcss">
@@ -60,6 +60,4 @@
       background-color: #ee3333aa;
     }
   }
-
-
 </style>

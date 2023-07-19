@@ -1,10 +1,10 @@
-import "./styles.pcss";
-import "normalize.css"
-import App from "./App.svelte";
+import './styles.pcss'
+import 'normalize.css'
+import App from './App.svelte'
 
 const app = new App({
-  target: document.getElementById("app"),
-});
+  target: document.getElementById('app')
+})
 
-export default app;
-document.oncontextmenu = () => false;
+export default app
+document.oncontextmenu = () => false
