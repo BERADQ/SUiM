@@ -3,3 +3,4 @@ declare interface Figure {
   avatar: string
   describes: string
 }
+

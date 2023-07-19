@@ -18,7 +18,12 @@
   change(!!$figure[0] ? 0 : -1)
 </script>
 
-<div class={`main ${a_count === -1 ? '' : 'ov'}`} data-tauri-drag-region>
+<div
+  class={`main ${a_count === -1 ? '' : 'ov'} ${import.meta.env.TAURI_PLATFORM}`}
+  data-tauri-drag-region>
+  {#if import.meta.env.TAURI_PLATFORM === 'macos'}
+    <div style="padding-top: 2em"></div>
+  {/if}
   <div class={`box main-box ${a_count === -1 ? 'ac' : ''}`}>
     <MainAvatar
       onclick={() => {
@@ -76,7 +81,7 @@
       transition: all var(--transition);
     }
 
-    &.ov::before {
+    &.ov:not(.macos)::before {
       box-shadow: calc(0px - var(--sh-size)) calc(0px - var(--sh-size)) 0
         var(--sh-size) var(--bg-color0);
     }
