@@ -122,10 +122,8 @@ fn main() {
             )
             .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
 
-            window.set_decorations(false).unwrap();
             #[cfg(target_os = "windows")]
             apply_mica(&window, None).unwrap();
-            window.set_decorations(true).unwrap();
             // #[cfg(target_os = "windows")]
             // set_shadow(&window, true).expect("Unsupported platform!");
             Ok(())
