@@ -127,7 +127,7 @@ fn main() {
             }
 
             #[cfg(target_os = "windows")]
-            apply_acrylic(&window, Some((44, 44, 44, 125))).unwrap();
+            apply_acrylic(&window, Some((18, 18, 18, 18))).unwrap();
 
             #[cfg(target_os = "windows")]
             window.set_decorations(true).unwrap();
