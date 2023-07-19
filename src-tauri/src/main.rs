@@ -111,21 +111,24 @@ fn main() {
             let window = app.get_window("main").unwrap();
 
             #[cfg(debug_assertions)]
-            window.open_devtools();
+            {
+                window.open_devtools();
+            }
 
             #[cfg(target_os = "macos")]
-            apply_vibrancy(
-                &window,
-                NSVisualEffectMaterial::WindowBackground,
-                None,
-                None,
-            )
-            .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
+            {
+                apply_vibrancy(
+                    &window,
+                    NSVisualEffectMaterial::WindowBackground,
+                    None,
+                    None,
+                )
+                .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
+            }
 
             #[cfg(target_os = "windows")]
             apply_mica(&window, None).unwrap();
-            // #[cfg(target_os = "windows")]
-            // set_shadow(&window, true).expect("Unsupported platform!");
+
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![get_file, write_file, image_base64])
