@@ -4,6 +4,3 @@ declare interface Figure {
   describes: string
 }
 
-declare module "$env/static/public" {
-  export const TAURI_PLATFORM: string
-}
