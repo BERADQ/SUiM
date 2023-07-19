@@ -62,7 +62,7 @@
     box-sizing: border-box;
     padding: var(--main-border);
     transition: all var(--transition);
-    &.ov {
+    &.ov:not(.macos) {
       border-top-left-radius: var(--radius-size);
     }
   }
