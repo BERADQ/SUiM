@@ -10,18 +10,16 @@ export default defineConfig(async () => ({
       preprocess: [
         sveltePreprocess({
           typescript: true,
+          postcss: {
+            plugins: [preset_env({
+              stage: 2,
+              browsers: 'since 2015',
+            })],
+          },
         }),
       ],
     }),
   ],
-  css: {
-    postcss: {
-      plugins: [preset_env({
-        stage: 3,
-        browsers:"cover 99.5%"
-      })],
-    },
-  },
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   // prevent vite from obscuring rust errors
   clearScreen: false,

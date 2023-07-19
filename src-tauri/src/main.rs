@@ -6,7 +6,6 @@ use std::alloc::System;
 #[global_allocator]
 static A: System = System;
 
-use serde_json;
 use std::fs::{create_dir_all, OpenOptions};
 use std::io::{prelude::*, Cursor};
 use std::path::Path;
@@ -109,7 +108,7 @@ fn main() {
       Ok(())
     })
     .invoke_handler(tauri::generate_handler![
-            get_pub, chat_call, get_file, write_file, image_base64
+             get_file, write_file, image_base64
         ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
