@@ -6,7 +6,7 @@
 
 <button class="main" on:click={onclick}>
   {#if !!base64}
-    <img src={`data:image/jpeg;base64,${base64}`} alt={iName}/>
+    <img src={`data:image/jpeg;base64,${base64}`} alt={iName} />
   {:else}
     <span>{iName.at(0)}</span>
   {/if}

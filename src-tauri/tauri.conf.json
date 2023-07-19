@@ -12,23 +12,7 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false,
-      "shell": {
-        "all": false,
-        "open": true
-      },
-      "window": {
-        "all": true
-      },
-      "path": {
-        "all": true
-      },
-      "process": {
-        "all": true
-      },
-      "fs": {
-        "scope": ["$RESOURCE/*"]
-      }
+      "all": true
     },
     "bundle": {
       "resources": ["./figure.json"],
@@ -44,7 +28,7 @@
       ]
     },
     "security": {
-      "csp": null
+      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
     },
     "windows": [
       {
@@ -55,7 +39,8 @@
         "height": 600,
         "minWidth": 800,
         "minHeight": 600,
-        "decorations": false
+        "decorations": true,
+        "transparent": true
       }
     ]
   }

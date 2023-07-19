@@ -19,7 +19,7 @@
 </script>
 
 <main class="container">
-  <Topbar/>
+  <!--  <Topbar/>-->
   <div class="fv">
     <SideBar onchange={change_page}/>
     <div class="main-page">
@@ -36,9 +36,12 @@
   }
 
   .fv {
-    height: calc(100% - var(--topbar-height));
+    /*height: calc(100% - var(--topbar-height));*/
+    height: 100%;
     width: 100%;
-    background-color: var(--bg-color1);
+    padding-top: var(--main-border);
+    /* background-color: var(--bg-color1); */
+    background-color: transparent;
     display: flex;
   }
 
