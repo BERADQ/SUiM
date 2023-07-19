@@ -10,7 +10,9 @@
 <style lang="postcss">
   .title {
     color: var(--text-color0);
-    margin: calc(var(--main-border) * 0.5) var(--main-border);
+    margin: 0 var(--main-border);
+    padding: calc(var(--main-border) * 0.5) 0;
     font-size: var(--title-size);
+    border-bottom: 2px solid var(--bg-ac-color0);
   }
 </style>

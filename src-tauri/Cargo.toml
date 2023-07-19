@@ -28,8 +28,6 @@ base64 = "0.21.2"
 custom-protocol = ["tauri/custom-protocol"]
 
 [profile.release]
-build-std = ["std", "panic_abort"]
-build-std-features = ["panic_immediate_abort"]
 strip = true
 lto = true
 codegen-units = 1

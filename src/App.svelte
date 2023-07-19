@@ -1,14 +1,32 @@
 <script lang="ts">
-  import SideBar from "./lib/SideBar.svelte";
-  import Topbar from "./lib/Topbar.svelte";
-  import Main from "./Main.svelte";
+  import SideBar from './lib/SideBar.svelte';
+  import Topbar from './lib/Topbar.svelte';
+  import BasePage from './page/BasePage.svelte';
+  import NewCard from './page/NewCard.svelte';
+
+  import figure from './stores/Figure';
+  import {get} from 'svelte/store';
+
+  let title;
+  const change_page = (count: number) => {
+    if (count === -1 || count === -2) {
+      title = count === -1 ? 'Setting' : 'Add';
+    } else {
+      title = get(figure)[count].name;
+      console.log(title);
+    }
+  };
 </script>
 
 <main class="container">
-  <Topbar />
+  <Topbar/>
   <div class="fv">
-    <SideBar />
-    <Main />
+    <SideBar onchange={change_page}/>
+    <div class="main-page">
+      <BasePage title={title}>
+        <NewCard/>
+      </BasePage>
+    </div>
   </div>
 </main>
 
@@ -16,10 +34,18 @@
   main {
     height: 100%;
   }
+
   .fv {
     height: calc(100% - var(--topbar-height));
     width: 100%;
     background-color: var(--bg-color1);
     display: flex;
+  }
+
+  .main-page {
+    background-color: transparent;
+    width: calc(100% - var(--side-width));
+    box-sizing: border-box;
+    margin: var(--main-border);
   }
 </style>
