@@ -22,7 +22,7 @@
   const platform = import.meta.env.TAURI_PLATFORM
 </script>
 
-<main class="container">
+<main class={`container ${platform}`}>
   <!--  <Topbar/>-->
   <div class="fv">
     <SideBar onchange={change_page} />
@@ -62,7 +62,10 @@
     box-sizing: border-box;
     padding: var(--main-border);
     transition: all var(--transition);
-    &.ov:not(.macos) {
+  }
+
+  main:not(.macos) {
+    .main-page.ov {
       border-top-left-radius: var(--radius-size);
     }
   }

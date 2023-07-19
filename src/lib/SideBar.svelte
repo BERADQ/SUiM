@@ -16,12 +16,13 @@
   console.log($figure)
   let a_count
   change(!!$figure[0] ? 0 : -1)
+  const platform = import.meta.env.TAURI_PLATFORM
 </script>
 
 <div
-  class={`main ${a_count === -1 ? '' : 'ov'} ${import.meta.env.TAURI_PLATFORM}`}
+  class={`main ${a_count === -1 ? '' : 'ov'} ${platform}`}
   data-tauri-drag-region>
-  {#if import.meta.env.TAURI_PLATFORM === 'macos'}
+  {#if platform === 'macos'}
     <div style="padding-top: 2em"></div>
   {/if}
   <div class={`box main-box ${a_count === -1 ? 'ac' : ''}`}>
