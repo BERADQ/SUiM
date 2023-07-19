@@ -66,20 +66,7 @@
     --shadow-color: color-mix(in srgb, var(--bg-ac-color0) 60%, var(--shadow));
     --hover--inner-color: color-mix(in srgb, var(--bg-ac-color0) 95%, #ffff);
 
-    &::before {
-      content: '';
-      position: absolute;
-      background-color: transparent;
-      height: var(--radius-size);
-      width: var(--radius-size);
-      top: 0;
-      right: calc(0px - var(--radius-size));
-      border-top-left-radius: var(--radius-size);
-      --sh-size: calc(var(--radius-size) * 0.25);
-      box-shadow: calc(0px - var(--sh-size)) calc(0px - var(--sh-size)) 0
-        var(--sh-size) transparent;
-      transition: all var(--transition);
-    }
+    
 
     &.ov:not(.macos)::before {
       box-shadow: calc(0px - var(--sh-size)) calc(0px - var(--sh-size)) 0
@@ -159,6 +146,7 @@
 
     &.main-box {
       margin-left: var(--icon-padding);
+      padding-top: var(--icon-padding);
       padding-bottom: 0;
       margin-bottom: 0;
       z-index: 3;
