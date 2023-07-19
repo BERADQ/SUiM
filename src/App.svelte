@@ -16,13 +16,22 @@
       console.log(title)
     }
   }
+
+  const platform = import.meta.env.TAURI_PLATFORM
 </script>
 
 <main class="container">
   <!--  <Topbar/>-->
   <div class="fv">
     <SideBar onchange={change_page} />
-    <div class="main-page">
+    <div class="main-page" style="position: relative">
+      {#if platform === 'macos'}
+        <div
+          data-tauri-drag-region
+          style="height: 1.7em; width: 100%; position: absolute; top: 0; left: 0 margin-left: calc(var(--main-border) * -0.5); right: 0">
+        </div>
+      {/if}
+
       <BasePage {title}>
         <NewCard />
       </BasePage>
