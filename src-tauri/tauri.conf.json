@@ -40,7 +40,7 @@
         "height": 600,
         "minWidth": 800,
         "minHeight": 600,
-        "decorations": false,
+        "decorations": true,
         "transparent": true,
         "titleBarStyle": "Overlay"
       }

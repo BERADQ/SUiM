@@ -58,7 +58,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: var(--bg-color0);
+    /* background-color: var(--bg-color0); */
     width: var(--side-width);
     position: relative;
     --transition: 200ms;

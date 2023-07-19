@@ -127,9 +127,11 @@ fn main() {
             }
 
             #[cfg(target_os = "windows")]
-            apply_acrylic(&window, None).unwrap();
+            apply_acrylic(&window, Some((44, 44, 44, 125))).unwrap();
 
+            #[cfg(target_os = "windows")]
             window.set_decorations(true).unwrap();
+
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![get_file, write_file, image_base64])
