@@ -114,7 +114,7 @@ fn main() {
             window.open_devtools();
 
             #[cfg(target_os = "macos")]
-            apply_vibrancy(&window, NSVisualEffectMaterial::AppearanceBased, None, None)
+            apply_vibrancy(&window, NSVisualEffectMaterial::Popover, None, None)
                 .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
 
             #[cfg(target_os = "windows")]
