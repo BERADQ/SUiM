@@ -39,17 +39,14 @@
     /*height: calc(100% - var(--topbar-height));*/
     height: 100%;
     width: 100%;
-    /* padding-top: var(--main-border); */
-    background-color: var(--bg-color1);
     /* background-color: transparent; */
     display: flex;
   }
 
   .main-page {
-    /* background-color: var(--bg-color1); */
-    /* background-color: transparent; */
+    background-color: var(--bg-color1);
     width: calc(100% - var(--side-width));
     box-sizing: border-box;
-    margin: var(--main-border);
+    padding: var(--main-border);
   }
 </style>

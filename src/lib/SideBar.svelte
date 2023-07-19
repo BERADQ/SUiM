@@ -63,7 +63,7 @@
     position: relative;
     --transition: 200ms;
     --shadow-size: var(--icon-padding);
-    --shadow-color: color-mix(in srgb, var(--bg-ac-color0) 60%, #000000);
+    --shadow-color: color-mix(in srgb, var(--bg-ac-color0) 60%, var(--shadow));
     --hover--inner-color: color-mix(in srgb, var(--bg-ac-color0) 95%, #ffff);
 
     &::before {

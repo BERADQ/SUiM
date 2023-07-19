@@ -1,6 +1,4 @@
-html,
-body,
-#app {
+html {
   font-family:
     ui-sans-serif,
     system-ui,
@@ -30,16 +28,33 @@ body,
 
   --title-size: 35px;
   --ava-title: 40px;
+}
 
-  --bg-color0: #2c2c2c;
-  --bg-color1: #242424;
-  --bg-ac-color0: #ffffff0f;
+html {
+  --bg-color0: hsl(0 0% 80% / 0.05);
+  --bg-color1: hsl(0 0% 86% / 1);
+  --bg-ac-color0: hsl(0 0% 80%);
+  --color0: hsl(255 21% 52%);
+  --color1: hsl(23 17% 21%);
+  --color2: hsl(298 24% 71%);
+  --color3: hsl(325 38% 51%);
+  --color4: hsl(203 17% 47%);
+  --text-color0: hsl(0 0% 40%);
+  --shadow: hsl(255 30% 50%);
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    --bg-color0: #2c2c2c;
+    --bg-color1: #242424;
+    --bg-ac-color0: #ffffff0f;
 
-  --color0: #6e6195;
-  --color1: #d3c8c1;
-  --color2: #5a385b;
-  --color3: #ac4d85;
-  --color4: #728b9a;
+    --color0: #6e6195;
+    --color1: #d3c8c1;
+    --color2: #5a385b;
+    --color3: #ac4d85;
+    --color4: #728b9a;
 
-  --text-color0: #999999;
+    --text-color0: #999999;
+    --shadow: hsl(255 30% 20%);
+  }
 }
