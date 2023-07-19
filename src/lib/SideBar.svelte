@@ -61,12 +61,9 @@
     /* background-color: var(--bg-color0); */
     width: var(--side-width);
     position: relative;
-    --transition: 200ms;
     --shadow-size: var(--icon-padding);
     --shadow-color: color-mix(in srgb, var(--bg-ac-color0) 60%, var(--shadow));
     --hover--inner-color: color-mix(in srgb, var(--bg-ac-color0) 95%, #ffff);
-
-    
 
     &.ov:not(.macos)::before {
       box-shadow: calc(0px - var(--sh-size)) calc(0px - var(--sh-size)) 0
@@ -95,6 +92,7 @@
     }
 
     & > .gradient {
+      display: none;
       position: absolute;
       height: var(--icon-padding);
       /*background-color: #f00;*/
@@ -152,8 +150,7 @@
       z-index: 3;
 
       &::before {
-        display: none;
-        box-shadow: none;
+        z-index: -1;
       }
 
       &::after {

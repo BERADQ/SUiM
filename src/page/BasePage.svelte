@@ -2,7 +2,7 @@
   export let title
 </script>
 
-<div>
+<div class="main-box">
   <h1 class="title">
     {title}
   </h1>

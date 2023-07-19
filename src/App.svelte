@@ -8,7 +8,9 @@
   import { get } from 'svelte/store'
 
   let title
+  let a_count
   const change_page = (count: number) => {
+    a_count = count
     if (count === -1 || count === -2) {
       title = count === -1 ? 'Setting' : 'Add'
     } else {
@@ -24,7 +26,9 @@
   <!--  <Topbar/>-->
   <div class="fv">
     <SideBar onchange={change_page} />
-    <div class="main-page" style="position: relative">
+    <div
+      class={`main-page ${a_count === -1 ? '' : 'ov'}`}
+      style="position: relative">
       {#if platform === 'macos'}
         <div
           data-tauri-drag-region
@@ -39,7 +43,7 @@
   </div>
 </main>
 
-<style>
+<style lang="postcss">
   main {
     height: 100%;
   }
@@ -57,5 +61,9 @@
     width: calc(100% - var(--side-width));
     box-sizing: border-box;
     padding: var(--main-border);
+    transition: all var(--transition);
+    &.ov {
+      border-top-left-radius: var(--radius-size);
+    }
   }
 </style>
