@@ -1,12 +1,14 @@
 <script lang="ts">
-  export let title;
+  export let title
 </script>
+
 <div>
   <h1 class="title">
     {title}
   </h1>
-  <slot></slot>
+  <slot />
 </div>
+
 <style lang="postcss">
   .title {
     color: var(--text-color0);

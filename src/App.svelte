@@ -1,30 +1,30 @@
 <script lang="ts">
-  import SideBar from './lib/SideBar.svelte';
-  import Topbar from './lib/Topbar.svelte';
-  import BasePage from './page/BasePage.svelte';
-  import NewCard from './page/NewCard.svelte';
+  import SideBar from './lib/SideBar.svelte'
+  import Topbar from './lib/Topbar.svelte'
+  import BasePage from './page/BasePage.svelte'
+  import NewCard from './page/NewCard.svelte'
 
-  import figure from './stores/Figure';
-  import {get} from 'svelte/store';
+  import figure from './stores/Figure'
+  import { get } from 'svelte/store'
 
-  let title;
+  let title
   const change_page = (count: number) => {
     if (count === -1 || count === -2) {
-      title = count === -1 ? 'Setting' : 'Add';
+      title = count === -1 ? 'Setting' : 'Add'
     } else {
-      title = get(figure)[count].name;
-      console.log(title);
+      title = get(figure)[count].name
+      console.log(title)
     }
-  };
+  }
 </script>
 
 <main class="container">
   <!--  <Topbar/>-->
   <div class="fv">
-    <SideBar onchange={change_page}/>
+    <SideBar onchange={change_page} />
     <div class="main-page">
-      <BasePage title={title}>
-        <NewCard/>
+      <BasePage {title}>
+        <NewCard />
       </BasePage>
     </div>
   </div>

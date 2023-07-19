@@ -1,5 +1,5 @@
 declare interface Figure {
-  name: string,
-  avatar: string,
+  name: string
+  avatar: string
   describes: string
 }
