@@ -20,11 +20,18 @@
       "window": {
         "all": true
       },
+      "path": {
+        "all": true
+      },
       "process": {
         "all": true
+      },
+      "fs": {
+        "scope": ["$RESOURCE/*"]
       }
     },
     "bundle": {
+      "resources": ["./figure.json"],
       "active": true,
       "targets": "all",
       "identifier": "top.ninnana.suai",

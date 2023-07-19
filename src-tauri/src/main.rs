@@ -103,6 +103,10 @@ fn main() {
   tauri::Builder::default()
     .setup(|app| {
       let window = app.get_window("main").unwrap();
+      
+      #[cfg(debug_assertions)]
+      window.open_devtools();
+      
       #[cfg(target_os = "windows")]
       set_shadow(&window, true).expect("Unsupported platform!");
       Ok(())
