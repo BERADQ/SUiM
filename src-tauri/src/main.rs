@@ -114,8 +114,13 @@ fn main() {
             window.open_devtools();
 
             #[cfg(target_os = "macos")]
-            apply_vibrancy(&window, NSVisualEffectMaterial::Popover, None, None)
-                .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
+            apply_vibrancy(
+                &window,
+                NSVisualEffectMaterial::WindowBackground,
+                None,
+                None,
+            )
+            .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
 
             #[cfg(target_os = "windows")]
             apply_mica(&window, Some(true))
