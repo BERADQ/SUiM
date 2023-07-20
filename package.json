@@ -21,6 +21,8 @@
     "@tauri-apps/cli": "^1.4.0",
     "@tsconfig/svelte": "^3.0.0",
     "@types/node": "^18.7.10",
+    "@unocss/extractor-svelte": "^0.53.5",
+    "@unocss/postcss": "^0.53.5",
     "eslint": "^8.45.0",
     "eslint-plugin-svelte": "^2.32.2",
     "postcss-nesting": "^12.0.0",
@@ -33,6 +35,7 @@
     "svelte-preprocess": "^5.0.0",
     "tslib": "^2.4.1",
     "typescript": "^4.9.5",
+    "unocss": "^0.53.5",
     "vite": "^4.2.1"
   }
 }
