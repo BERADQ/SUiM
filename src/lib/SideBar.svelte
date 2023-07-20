@@ -80,7 +80,7 @@
       display: flex;
       flex-flow: column;
       padding: var(--icon-padding);
-      padding-left: 0;
+      padding-left: 2px;
       padding-right: 0;
       padding-bottom: var(--radius-size);
 
@@ -99,9 +99,7 @@
       }
 
       &::-webkit-scrollbar {
-        --padding: 3px;
-        margin-right: var(--padding);
-        width: var(--icon-padding);
+        width: calc(var(--icon-padding) - 2px);
         height: 100%;
         background-color: transparent;
       }
