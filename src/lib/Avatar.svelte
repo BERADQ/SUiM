@@ -26,7 +26,7 @@
     border-radius: var(--inner-radius-size);
     padding: 0;
     overflow: hidden;
-    @apply bg-brand-50/50 dark:bg-brand-950/50 [&:not(.macos)]:bg-brand-100/40;
+    @apply bg-brand-50/50 dark:bg-brand-950/50 [&:not(.macos)]:bg-brand-200/40;
     transition: all var(--transition);
 
     &:hover {

@@ -12,7 +12,7 @@ document.oncontextmenu = () => false
 
 //为win10环境添加背景，所以需要单独添加class
 invoke('is_windows10').then((b: boolean) => {
-  if (!b) {
+  if (b) {
     document
       .querySelector('html').toggleAttribute('data-set-background')
   }

@@ -147,7 +147,7 @@ fn main() {
                 match os_version {
                     os_info::Version::Semantic(nt, _, fix) => {
                         if nt >= &10 && fix >= &22000 {
-                            // apply_mica(&window, None).unwrap();
+                            apply_mica(&window, None).unwrap();
                         } else if nt >= &10 {
                             // nothing
                         } else {

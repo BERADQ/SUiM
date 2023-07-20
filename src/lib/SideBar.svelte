@@ -171,10 +171,15 @@
 
       &.ac {
         --v-color: theme('colors.neutral.100');
+        &:not(.macos) {
+          --v-color: theme('colors.neutral.200');
+        }
         @media (prefers-color-scheme: dark) {
           --v-color: theme('colors.neutral.900');
+          &:not(.macos) {
+          }
         }
-        @apply bg-neutral-100 dark:bg-neutral-900;
+        @apply bg-neutral-100 dark:bg-neutral-900 [&:not(.macos)]:bg-neutral-200;
         /* background-color: var(--bg-color1); */
         padding-top: var(--icon-padding);
         position: sticky;
