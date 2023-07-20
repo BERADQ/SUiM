@@ -86,6 +86,18 @@
 
       overflow: scroll;
 
+      &::-webkit-scrollbar-thumb {
+        background-color: color-mix(
+          in srgb,
+          var(--color0) 10%,
+          transparent 90%
+        );
+      }
+
+      &:hover::-webkit-scrollbar-thumb {
+        background: var(--color0);
+      }
+
       &::-webkit-scrollbar {
         --padding: 3px;
         margin-right: var(--padding);
