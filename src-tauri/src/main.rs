@@ -13,7 +13,7 @@ use std::io::{prelude::*, Cursor};
 use std::path::Path;
 use tauri::Manager;
 use window_shadows::set_shadow;
-use window_vibrancy::{apply_acrylic, apply_vibrancy, NSVisualEffectMaterial};
+use window_vibrancy::{apply_blur, apply_mica, apply_vibrancy, NSVisualEffectMaterial};
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 
@@ -106,8 +106,6 @@ async fn image_base64(path: String) -> Result<String, String> {
 }
 
 fn main() {
-    let info = os_info::get();
-    println!("OS version: {}", info.version());
     tauri::Builder::default()
         .setup(|app| {
             let window = app.get_window("main").unwrap();
@@ -129,9 +127,21 @@ fn main() {
 
             #[cfg(target_os = "windows")]
             {
+                let info = os_info::get();
+                let os_version: i64 = info
+                    .version()
+                    .to_string()
+                    .split('.')
+                    .last()
+                    .unwrap()
+                    .parse()
+                    .unwrap();
+                if os_version >= 22000 {
+                    apply_mica(&window, None).unwrap();
+                } else {
+                    apply_blur(&window, None).unwrap();
+                }
                 window.set_decorations(true).unwrap();
-                apply_acrylic(&window, Some((14, 14, 14, 20))).unwrap();
-                // apply_mica(&window, None).unwrap();
             }
 
             Ok(())
