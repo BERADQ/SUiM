@@ -72,117 +72,123 @@
     }
 
     --icon-padding: calc(var(--side-margin) * 0.7);
-  }
 
-  .bar {
-    box-sizing: border-box;
-    background-color: transparent;
-    flex-grow: 1;
-    top: 0;
-    display: flex;
-    flex-flow: column;
-    padding: var(--icon-padding);
-    padding-right: 0;
-    padding-bottom: var(--radius-size);
-    /*padding-top: 0;*/
-
-    overflow: scroll;
-
-    &::-webkit-scrollbar {
-      display: none;
+    &.macos .bar {
+      overflow: overlay;
     }
 
-    & > .gradient {
-      display: none;
-      position: absolute;
-      height: var(--icon-padding);
-      /*background-color: #f00;*/
-      background: linear-gradient(var(--bg-color0) 40%, transparent);
-      width: calc(var(--side-width) - var(--icon-padding) * 3);
-      margin-top: calc(0px - var(--icon-padding));
-      margin-left: var(--icon-padding);
-      z-index: 2;
+    &:not(.macos) .bar {
+      overflow: scroll;
     }
-  }
 
-  .box {
-    padding: var(--icon-padding);
-    padding-top: 0;
-    border-radius: var(--radius-size) 0 0 var(--radius-size);
-    position: relative;
-    /*margin-bottom: calc(var(--side-margin) * 0.5);*/
-    background-color: transparent;
-    transition: all var(--transition);
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: var(--radius-size);
-      height: var(--radius-size);
+    .bar {
+      box-sizing: border-box;
       background-color: transparent;
-      top: calc(0px - var(--radius-size));
-      right: 0;
-      border-bottom-right-radius: var(--radius-size);
-      --sh-size: calc(var(--radius-size) * 0.25);
-      box-shadow: var(--sh-size) var(--sh-size) 0 var(--sh-size) transparent;
-      transition: all var(--transition);
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      width: var(--radius-size);
-      height: var(--radius-size);
-      background-color: transparent;
-      bottom: calc(0px - var(--radius-size));
-      right: 0;
-      border-top-right-radius: var(--radius-size);
-      --sh-size: calc(var(--radius-size) * 0.25);
-      box-shadow: var(--sh-size) calc(0px - var(--sh-size)) 0 var(--sh-size)
-        transparent;
-      transition: all 220ms;
-    }
-
-    &.main-box {
-      margin-left: var(--icon-padding);
-      padding-top: var(--icon-padding);
-      padding-bottom: 0;
-      margin-bottom: 0;
-      z-index: 3;
-
-      &::before {
-        z-index: -1;
-      }
-
-      &::after {
-        z-index: -1;
-      }
-    }
-
-    &.ac {
-      background-color: var(--bg-color1);
-      padding-top: var(--icon-padding);
-      position: sticky;
+      flex-grow: 1;
       top: 0;
-      bottom: 0;
-      z-index: 1;
+      display: flex;
+      flex-flow: column;
+      padding: var(--icon-padding);
+      padding-right: 0;
+      padding-bottom: var(--radius-size);
+      /*padding-top: 0;*/
 
-      & + .box {
-        padding-top: var(--icon-padding);
+      &::-webkit-scrollbar {
+        display: none;
       }
 
+      & > .gradient {
+        display: none;
+        position: absolute;
+        height: var(--icon-padding);
+        /*background-color: #f00;*/
+        background: linear-gradient(var(--bg-color0) 40%, transparent);
+        width: calc(var(--side-width) - var(--icon-padding) * 3);
+        margin-top: calc(0px - var(--icon-padding));
+        margin-left: var(--icon-padding);
+        z-index: 2;
+      }
+    }
+
+    .box {
+      padding: var(--icon-padding);
+      padding-top: 0;
+      border-radius: var(--radius-size) 0 0 var(--radius-size);
+      position: relative;
+      /*margin-bottom: calc(var(--side-margin) * 0.5);*/
+      background-color: transparent;
+      transition: all var(--transition);
+
       &::before {
-        box-shadow: var(--sh-size) var(--sh-size) 0 var(--sh-size)
-          var(--bg-color1);
+        content: '';
+        position: absolute;
+        width: var(--radius-size);
+        height: var(--radius-size);
+        background-color: transparent;
+        top: calc(0px - var(--radius-size));
+        right: 0;
+        border-bottom-right-radius: var(--radius-size);
+        --sh-size: calc(var(--radius-size) * 0.25);
+        box-shadow: var(--sh-size) var(--sh-size) 0 var(--sh-size) transparent;
+        transition: all var(--transition);
       }
 
       &::after {
+        content: '';
+        position: absolute;
+        width: var(--radius-size);
+        height: var(--radius-size);
+        background-color: transparent;
+        bottom: calc(0px - var(--radius-size));
+        right: 0;
+        border-top-right-radius: var(--radius-size);
+        --sh-size: calc(var(--radius-size) * 0.25);
         box-shadow: var(--sh-size) calc(0px - var(--sh-size)) 0 var(--sh-size)
-          var(--bg-color1);
+          transparent;
+        transition: all 220ms;
       }
 
       &.main-box {
-        padding-bottom: var(--icon-padding);
+        margin-left: var(--icon-padding);
+        padding-top: var(--icon-padding);
+        padding-bottom: 0;
+        margin-bottom: 0;
+        z-index: 3;
+
+        &::before {
+          z-index: -1;
+        }
+
+        &::after {
+          z-index: -1;
+        }
+      }
+
+      &.ac {
+        background-color: var(--bg-color1);
+        padding-top: var(--icon-padding);
+        position: sticky;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+
+        & + .box {
+          padding-top: var(--icon-padding);
+        }
+
+        &::before {
+          box-shadow: var(--sh-size) var(--sh-size) 0 var(--sh-size)
+            var(--bg-color1);
+        }
+
+        &::after {
+          box-shadow: var(--sh-size) calc(0px - var(--sh-size)) 0 var(--sh-size)
+            var(--bg-color1);
+        }
+
+        &.main-box {
+          padding-bottom: var(--icon-padding);
+        }
       }
     }
   }
