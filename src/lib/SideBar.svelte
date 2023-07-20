@@ -87,7 +87,7 @@
 
       &:hover::-webkit-scrollbar-thumb {
         @apply bg-brand-400 dark:bg-brand-700;
-        @apply transition-background;
+        @apply transition-all;
       }
 
       &::-webkit-scrollbar {
@@ -95,7 +95,7 @@
       }
 
       &::-webkit-scrollbar-thumb {
-        @apply transition-background;
+        @apply transition-all;
         @apply bg-brand-400/20 dark:bg-brand-700/20;
         @apply b-rounded-[calc(var(--icon-padding)*0.5-1px)];
       }
