@@ -87,13 +87,16 @@
       overflow: scroll;
 
       &::-webkit-scrollbar {
+        --padding: 3px;
+        margin-right: var(--padding);
         width: var(--icon-padding);
         height: 100%;
         background-color: transparent;
       }
 
       &::-webkit-scrollbar-thumb {
-        background: var(--color0);
+        background: color-mix(in srgb, var(--color0) 50%, transparent);
+        border-radius: calc(var(--icon-padding) * 0.5);
       }
 
       direction: rtl;
