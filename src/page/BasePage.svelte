@@ -11,7 +11,7 @@
 
 <style lang="postcss">
   .title {
-    color: var(--text-color0);
+    @apply text-brand-700 dark:text-brand-300;
     margin: 0 var(--main-border);
     padding: calc(var(--main-border) * 0.5) 0;
     font-size: var(--title-size);

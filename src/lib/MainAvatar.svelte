@@ -46,7 +46,8 @@
     }
 
     & > span {
-      color: var(--text-color0);
+      @apply text-neutral-500;
+      /* color: var(--text-color0); */
       width: 100%;
       text-align: center;
       font-size: 60%;
