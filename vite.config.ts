@@ -3,6 +3,7 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 import sveltePreprocess from 'svelte-preprocess'
 import preset_env from 'postcss-preset-env'
 import unocss_postcss from '@unocss/postcss'
+import unoconf from './uno.config'
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
@@ -17,7 +18,7 @@ export default defineConfig(async () => ({
                 stage: 2,
                 browsers: 'since 2015'
               }),
-              unocss_postcss()
+              unocss_postcss({ configOrPath: unoconf })
             ]
           }
         })
