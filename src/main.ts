@@ -1,4 +1,4 @@
-import './styles.pcss'
+import './styles.css'
 import 'normalize.css'
 import App from './App.svelte'
 import { invoke } from '@tauri-apps/api'
@@ -12,7 +12,8 @@ document.oncontextmenu = () => false
 
 //为win10环境添加背景，所以需要单独添加class
 invoke('is_windows10').then((b: boolean) => {
-  if (b) {
-    document.body.classList.add('windows10')
+  if (!b) {
+    document
+      .querySelector('html').toggleAttribute('data-set-background')
   }
 })
