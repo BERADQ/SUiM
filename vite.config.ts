@@ -1,26 +1,30 @@
 import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { svelte, vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import sveltePreprocess from 'svelte-preprocess'
 import preset_env from 'postcss-preset-env'
 import unocss_postcss from '@unocss/postcss'
+import unocss from 'unocss/vite'
 import unoconf from './uno.config'
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
+  css: {
+    postcss: {
+      plugins: [
+        preset_env({
+          stage: 2,
+          browsers: 'since 2015'
+        }),
+        unocss_postcss()
+      ]
+    }
+  },
   plugins: [
     svelte({
       preprocess: [
+        vitePreprocess(),
         sveltePreprocess({
-          typescript: true,
-          postcss: {
-            plugins: [
-              preset_env({
-                stage: 2,
-                browsers: 'since 2015'
-              }),
-              unocss_postcss({ configOrPath: unoconf })
-            ]
-          }
+          typescript: true
         })
       ]
     })
