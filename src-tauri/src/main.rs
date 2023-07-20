@@ -123,19 +123,22 @@ fn main() {
             #[cfg(target_os = "windows")]
             {
                 let info = os_info::get();
-                let os_version: i64 = info
-                    .version()
-                    .to_string()
-                    .split('.')
-                    .last()
-                    .unwrap()
-                    .parse()
-                    .unwrap();
-                if os_version >= 22000 {
-                    apply_mica(&window, None).unwrap();
-                } else {
-                    apply_blur(&window, None).unwrap();
+                let os_version = info.version();
+                match os_version {
+                    os_info::Version::Semantic(nt, _, fix) => {
+                        if nt >= &10 && fix >= &22000 {
+                            apply_mica(&window, None).unwrap();
+                        } else if nt >= &10 {
+                            apply_blur(&window, None).unwrap();
+                        } else {
+                            panic!("")
+                        }
+                    }
+                    _ => {
+                        panic!("")
+                    }
                 }
+
                 window.set_decorations(true).unwrap();
             }
 
