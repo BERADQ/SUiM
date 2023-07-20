@@ -12,7 +12,7 @@ use std::fs::{create_dir_all, OpenOptions};
 use std::io::{prelude::*, Cursor};
 use std::path::Path;
 use tauri::Manager;
-use window_vibrancy::{apply_mica, apply_vibrancy, NSVisualEffectMaterial};
+// use window_shadows::set_shadow;
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 
@@ -132,12 +132,16 @@ fn main() {
 
             #[cfg(target_os = "macos")]
             {
+                use window_vibrancy::{apply_vibrancy, NSVisualEffectMaterial};
+
                 apply_vibrancy(&window, NSVisualEffectMaterial::Sidebar, None, None)
                     .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
             }
 
             #[cfg(target_os = "windows")]
             {
+                use window_vibrancy::{apply_blur, apply_mica};
+
                 let info = os_info::get();
                 let os_version = info.version();
                 match os_version {

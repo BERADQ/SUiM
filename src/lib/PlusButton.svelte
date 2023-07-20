@@ -4,7 +4,7 @@
 
 <button class="main" on:click={onclick}>
   <svg
-    class="icon"
+    class="icon text-neutral-500"
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@
     height="40%">
     <path
       d="M960 448H576V64a64 64 0 0 0-128 0v384H64a64 64 0 0 0 0 128h384v384a64 64 0 0 0 128 0V576h384a64 64 0 0 0 0-128z"
-      fill="var(--text-color0)" />
+      fill="currentColor" />
   </svg>
 </button>
 

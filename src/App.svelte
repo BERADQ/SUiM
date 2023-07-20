@@ -57,7 +57,8 @@
   }
 
   .main-page {
-    background-color: var(--bg-color1);
+    @apply bg-neutral-100 dark:bg-neutral-900;
+    /* background-color: var(--bg-color1); */
     width: calc(100% - var(--side-width));
     box-sizing: border-box;
     padding: var(--main-border);

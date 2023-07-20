@@ -6,17 +6,17 @@
 
   export let onchange: (a_count: number) => void
 
-  const change = (count: number) => {
+  const platform = import.meta.env.TAURI_PLATFORM
+  let a_count
+
+  change(!!$figure[0] ? 0 : -1)
+
+  function change(count: number) {
     if (a_count !== count) {
       a_count = count
       onchange(count)
     }
   }
-
-  console.log($figure)
-  let a_count
-  change(!!$figure[0] ? 0 : -1)
-  const platform = import.meta.env.TAURI_PLATFORM
 </script>
 
 <div class={`main ${a_count === -1 ? '' : 'ov'} ${platform}`}>
@@ -86,20 +86,18 @@
       overflow: auto;
 
       &:hover::-webkit-scrollbar-thumb {
-        @apply bg-brand-300/80 
-        dark:bg-brand-400/80;
+        @apply bg-brand-400 dark:bg-brand-700;
+        @apply transition-background;
       }
 
       &::-webkit-scrollbar {
-        @apply w-[calc(var(--icon-padding)-2px)] 
-        h-100% 
-        bg-transparent;
+        @apply w-[calc(var(--icon-padding)-2px)] h-full bg-transparent;
       }
 
       &::-webkit-scrollbar-thumb {
-        @apply bg-brand-300/50 
-        dark:bg-brand-400/50 
-        b-rounded-[calc(var(--icon-padding)*0.5-1px)];
+        @apply transition-background;
+        @apply bg-brand-400/20 dark:bg-brand-700/20;
+        @apply b-rounded-[calc(var(--icon-padding)*0.5-1px)];
       }
 
       direction: rtl;
@@ -172,7 +170,12 @@
       }
 
       &.ac {
-        background-color: var(--bg-color1);
+        --v-color: theme('colors.neutral.100');
+        @media (prefers-color-scheme: dark) {
+          --v-color: theme('colors.neutral.900');
+        }
+        @apply bg-neutral-100 dark:bg-neutral-900;
+        /* background-color: var(--bg-color1); */
         padding-top: var(--icon-padding);
         position: sticky;
         top: 0;
@@ -185,12 +188,12 @@
 
         &::before {
           box-shadow: var(--sh-size) var(--sh-size) 0 var(--sh-size)
-            var(--bg-color1);
+            var(--v-color);
         }
 
         &::after {
           box-shadow: var(--sh-size) calc(0px - var(--sh-size)) 0 var(--sh-size)
-            var(--bg-color1);
+            var(--v-color);
         }
 
         &.main-box {

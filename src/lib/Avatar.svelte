@@ -26,12 +26,12 @@
     border-radius: var(--inner-radius-size);
     padding: 0;
     overflow: hidden;
-    background-color: var(--bg-ac-color0);
+    @apply bg-brand-50/50 dark:bg-brand-950/50;
     transition: all var(--transition);
 
     &:hover {
       box-shadow: var(--shadow-color) 0 0 var(--shadow-size) inset;
-      background-color: var(--hover--inner-color);
+      @apply bg-brand-200 dark:bg-brand-800;
       cursor: pointer;
     }
 
@@ -43,10 +43,13 @@
     }
 
     & > span {
-      color: var(--text-color0);
+      @apply text-brand-300;
       width: 100%;
       text-align: center;
       font-size: 60%;
+    }
+    &:hover > span {
+      @apply text-brand-300;
     }
   }
 </style>
