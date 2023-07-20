@@ -15,7 +15,7 @@ html {
     'Segoe UI Symbol',
     'Noto Color Emoji';
 
-  @apply [&[data-set-background]]:bg-nature-200;
+  @apply [&[data-set-background]]:bg-gbase-200;
 
   --transition: 200ms;
 
