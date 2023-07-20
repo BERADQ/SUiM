@@ -116,13 +116,8 @@ fn main() {
 
             #[cfg(target_os = "macos")]
             {
-                apply_vibrancy(
-                    &window,
-                    NSVisualEffectMaterial::WindowBackground,
-                    None,
-                    None,
-                )
-                .unwrap();
+                apply_vibrancy(&window, NSVisualEffectMaterial::Sidebar, None, None)
+                    .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
             }
 
             #[cfg(target_os = "windows")]

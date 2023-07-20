@@ -72,19 +72,18 @@
     --icon-padding: calc(var(--side-margin) * 0.7);
 
     .bar {
-      display: block;
       box-sizing: border-box;
       background-color: transparent;
-      flex-grow: 1;
-      top: 0;
       display: flex;
       flex-flow: column;
-      padding: var(--icon-padding);
+      flex-grow: 1;
+      padding-top: var(--icon-padding);
+
       padding-left: 2px;
       padding-right: 0;
       padding-bottom: var(--radius-size);
 
-      overflow: scroll;
+      overflow: auto;
 
       &:hover::-webkit-scrollbar-thumb {
         @apply bg-brand-300/80 
