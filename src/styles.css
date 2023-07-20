@@ -15,7 +15,7 @@ html {
     'Segoe UI Symbol',
     'Noto Color Emoji';
 
-  @apply [&[data-set-background]]:bg-neutral-100
+  @apply [&[data-set-background]]:bg-[var(--bg-color0)]
 
   --transition: 200ms;
 
@@ -41,7 +41,7 @@ body,
 }
 
 html {
-  --bg-color0: hsl(0 0% 80% / 0.05);
+  --bg-color0: hsl(0 0% 30% / 1);
   --bg-color1: hsl(0 0% 86% / 1);
   --bg-ac-color0: hsl(0 0% 80%);
   --color0: hsl(255 21% 52%);
