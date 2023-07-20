@@ -86,14 +86,22 @@
 
       overflow: scroll;
 
+      &::-webkit-scrollbar-thumb {
+        background-color: color-mix(
+          in srgb,
+          var(--color0) 10%,
+          transparent 90%
+        );
+      }
+
+      &:hover::-webkit-scrollbar-thumb {
+        background: var(--color0);
+      }
+
       &::-webkit-scrollbar {
         width: var(--icon-padding);
         height: 100%;
         background-color: transparent;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: var(--color0);
       }
 
       direction: rtl;
