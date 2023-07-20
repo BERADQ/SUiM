@@ -12,8 +12,7 @@ use std::fs::{create_dir_all, OpenOptions};
 use std::io::{prelude::*, Cursor};
 use std::path::Path;
 use tauri::Manager;
-use window_shadows::set_shadow;
-use window_vibrancy::{apply_blur, apply_mica, apply_vibrancy, NSVisualEffectMaterial};
+use window_vibrancy::{apply_mica, apply_vibrancy, NSVisualEffectMaterial};
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 
@@ -59,6 +58,23 @@ fn write_file(path: String, content: String) -> Result<(), ()> {
         return Err(());
     }
     Ok(())
+}
+#[tauri::command]
+async fn is_windows10() -> Result<bool, String> {
+    let info = os_info::get();
+    let os_version = info.version();
+    match os_version {
+        os_info::Version::Semantic(nt, _, fix) => {
+            return if nt >= &10 && fix >= &22000 {
+                Ok(false)
+            } else {
+                Ok(true)
+            };
+        }
+        _ => {
+            panic!("unknown windows version!")
+        }
+    }
 }
 
 #[tauri::command]
@@ -129,7 +145,7 @@ fn main() {
                         if nt >= &10 && fix >= &22000 {
                             apply_mica(&window, None).unwrap();
                         } else if nt >= &10 {
-                            apply_blur(&window, None).unwrap();
+                            // nothing
                         } else {
                             panic!("unknown windows version! info: {}", info)
                         }
@@ -141,10 +157,14 @@ fn main() {
 
                 window.set_decorations(true).unwrap();
             }
-
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![get_file, write_file, image_base64])
+        .invoke_handler(tauri::generate_handler![
+            get_file,
+            write_file,
+            image_base64,
+            is_windows10
+        ])
         .run(tauri::generate_context!())
-        .expect("error while running tauri application");
+        .unwrap();
 }
