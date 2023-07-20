@@ -86,27 +86,21 @@
 
       overflow: scroll;
 
-      &::-webkit-scrollbar-thumb {
-        background-color: color-mix(
-          in srgb,
-          var(--color0) 10%,
-          transparent 90%
-        );
-      }
-
       &:hover::-webkit-scrollbar-thumb {
-        background: var(--color0);
+        @apply bg-brand-300/80 
+        dark:bg-brand-400/80;
       }
 
       &::-webkit-scrollbar {
-        width: calc(var(--icon-padding) - 2px);
-        height: 100%;
-        background-color: transparent;
+        @apply w-[calc(var(--icon-padding)-2px)] 
+        h-100% 
+        bg-transparent;
       }
 
       &::-webkit-scrollbar-thumb {
-        background: color-mix(in srgb, var(--color0) 50%, transparent);
-        border-radius: calc(var(--icon-padding) * 0.5);
+        @apply bg-brand-300/50 
+        dark:bg-brand-400/50 
+        b-rounded-[calc(var(--icon-padding)*0.5-1px)];
       }
 
       direction: rtl;

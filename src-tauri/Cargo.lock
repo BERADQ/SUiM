@@ -3352,6 +3352,7 @@ version = "0.0.0"
 dependencies = [
  "base64 0.21.2",
  "image",
+ "os_info",
  "rand 0.8.5",
  "reqwest",
  "serde",

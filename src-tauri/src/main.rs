@@ -106,10 +106,11 @@ async fn image_base64(path: String) -> Result<String, String> {
 }
 
 fn main() {
+    let info = os_info::get();
+    println!("OS version: {}", info.version());
     tauri::Builder::default()
         .setup(|app| {
             let window = app.get_window("main").unwrap();
-
             #[cfg(debug_assertions)]
             {
                 window.open_devtools();
@@ -123,14 +124,15 @@ fn main() {
                     None,
                     None,
                 )
-                .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
+                .unwrap();
             }
 
             #[cfg(target_os = "windows")]
-            apply_acrylic(&window, Some((18, 18, 18, 18))).unwrap();
-
-            #[cfg(target_os = "windows")]
-            window.set_decorations(true).unwrap();
+            {
+                window.set_decorations(true).unwrap();
+                apply_acrylic(&window, Some((14, 14, 14, 20))).unwrap();
+                // apply_mica(&window, None).unwrap();
+            }
 
             Ok(())
         })
