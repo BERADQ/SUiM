@@ -31,7 +31,7 @@
 
     &:hover {
       box-shadow: var(--shadow-color) 0 0 var(--shadow-size) inset;
-      @apply bg-brand-300 dark:bg-brand-800;
+      @apply bg-brand-200 dark:bg-brand-800;
       cursor: pointer;
     }
 
