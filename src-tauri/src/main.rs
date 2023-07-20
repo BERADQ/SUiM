@@ -129,9 +129,9 @@ fn main() {
                         if nt >= &10 && fix >= &22000 {
                             apply_mica(&window, None).unwrap();
                         } else if nt >= &10 {
-                            apply_blur(&window, None)
+                            apply_blur(&window, None).unwrap();
                         } else {
-                            panic!("unknown windows version! info: {}", os_info)
+                            panic!("unknown windows version! info: {}", info)
                         }
                     }
                     _ => {
