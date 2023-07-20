@@ -872,6 +872,16 @@
   resolved "https://registry.yarnpkg.com/@unocss/scope/-/scope-0.53.5.tgz#92b40f4abb8c8b16e9bbded7cbc398f78c097ee1"
   integrity sha512-KBwemWNJIbu3+BWp0X4o5ERN0/nzF7hXBnjYNSb0s8phrydC6oJrp52XYlIHHTe7O4KzwkqGgf/xOMXMFpviDg==
 
+"@unocss/svelte-scoped@^0.53.5":
+  version "0.53.5"
+  resolved "https://registry.yarnpkg.com/@unocss/svelte-scoped/-/svelte-scoped-0.53.5.tgz#3f8677db08e27ff6db09f863ecaf42743a1340a9"
+  integrity sha512-uj790LJChWR29idxjZ5Eg8KwvL5yc9lXvk3ZrqQmwhyzyn2If0cEZ/4U7uGYWfX3EpAQATiB1gp2jsSsXKNLhQ==
+  dependencies:
+    "@unocss/config" "0.53.5"
+    "@unocss/reset" "0.53.5"
+    css-tree "^2.3.1"
+    magic-string "^0.30.1"
+
 "@unocss/transformer-attributify-jsx-babel@0.53.5":
   version "0.53.5"
   resolved "https://registry.yarnpkg.com/@unocss/transformer-attributify-jsx-babel/-/transformer-attributify-jsx-babel-0.53.5.tgz#f5d550f0b6da96c54a7bfa0dba82355c05dedb68"

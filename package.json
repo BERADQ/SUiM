@@ -23,6 +23,7 @@
     "@types/node": "^18.7.10",
     "@unocss/extractor-svelte": "^0.53.5",
     "@unocss/postcss": "^0.53.5",
+    "@unocss/svelte-scoped": "^0.53.5",
     "eslint": "^8.45.0",
     "eslint-plugin-svelte": "^2.32.2",
     "postcss-nesting": "^12.0.0",
