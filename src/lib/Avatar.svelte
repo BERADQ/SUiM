@@ -42,13 +42,15 @@
     }
 
     & > span {
-      @apply text-brand-300;
+      @apply text-brand-400;
+      @apply transition-all;
       width: 100%;
       text-align: center;
       font-size: 60%;
     }
     &:hover > span {
-      @apply text-brand-300;
+      @apply transition-all;
+      @apply text-brand-500;
     }
   }
 </style>

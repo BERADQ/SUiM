@@ -91,13 +91,13 @@
       }
 
       &::-webkit-scrollbar {
-        @apply w-[calc(var(--icon-padding)-2px)] h-full bg-transparent;
+        @apply w-[calc(var(--icon-padding)-1px)] h-full bg-transparent;
       }
 
       &::-webkit-scrollbar-thumb {
         @apply transition-all;
         @apply bg-brand-400/20 dark:bg-brand-700/20;
-        @apply b-rounded-[calc(var(--icon-padding)*0.5-1px)];
+        @apply rounded-full;
       }
 
       direction: rtl;
