@@ -14,24 +14,20 @@
 
 <style lang="postcss">
   .main {
-    user-select: none;
     font-size: var(--ava-title);
-    border: none;
-    width: 100%;
-    aspect-ratio: 1/1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 100%;
     border-radius: var(--inner-radius-size);
-    padding: 0;
-    overflow: hidden;
-    @apply bg-brand-50/50 dark:bg-brand-950/50 [&:not(.macos)]:bg-brand-200/40;
     transition: all var(--transition);
 
+    @apply bg-brand-50/50 dark:bg-brand-950/50 overflow-hidden p-0 lh-100% grid-items-center flex flex-justify-center aspect-ratio-square w-100% b-none select-none;
+    &:not(.macos) {
+      @apply bg-brand-200/40 dark:bg-brand-950/50;
+    }
+
     &:hover {
-      @apply bg-brand-200 dark:bg-brand-800 [&:not(.macos)]:bg-brand-200;
-      cursor: pointer;
+      @apply bg-brand-200 dark:bg-brand-800 cursor-pointer;
+      &:not(.macos) {
+        @apply bg-brand-200 dark:bg-brand-800;
+      }
     }
 
     & > img {

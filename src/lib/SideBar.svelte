@@ -60,14 +60,6 @@
     /* background-color: var(--bg-color0); */
     width: var(--side-width);
     position: relative;
-    --shadow-size: var(--icon-padding);
-    --shadow-color: color-mix(in srgb, var(--bg-ac-color0) 60%, var(--shadow));
-    --hover--inner-color: color-mix(in srgb, var(--bg-ac-color0) 95%, #ffff);
-
-    &.ov:not(.macos)::before {
-      box-shadow: calc(0px - var(--sh-size)) calc(0px - var(--sh-size)) 0
-        var(--sh-size) var(--bg-color0);
-    }
 
     --icon-padding: calc(var(--side-margin) * 0.7);
 
@@ -172,14 +164,16 @@
       &.ac {
         --v-color: theme('colors.neutral.100');
         &:not(.macos) {
-          --v-color: theme('colors.neutral.200');
+          --v-color: theme('colors.light.200');
+          @media (prefers-color-scheme: dark) {
+            --v-color: theme('colors.neutral.900');
+          }
+          @apply bg-light-200 dark:bg-neutral-900;
         }
         @media (prefers-color-scheme: dark) {
           --v-color: theme('colors.neutral.900');
-          &:not(.macos) {
-          }
         }
-        @apply bg-neutral-100 dark:bg-neutral-900 [&:not(.macos)]:bg-neutral-200;
+        @apply bg-neutral-100 dark:bg-neutral-900;
         /* background-color: var(--bg-color1); */
         padding-top: var(--icon-padding);
         position: sticky;

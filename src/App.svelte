@@ -62,7 +62,10 @@
   }
 
   .main-page {
-    @apply bg-neutral-50 dark:bg-neutral-900 [&:not(.macos)]:bg-neutral-200;
+    @apply bg-neutral-50 dark:bg-neutral-900;
+    &:not(.macos) {
+      @apply bg-light-300 dark:bg-neutral-900;
+    }
     /* background-color: var(--bg-color1); */
     width: calc(100% - var(--side-width));
     box-sizing: border-box;
