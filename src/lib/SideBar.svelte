@@ -162,18 +162,20 @@
       }
 
       &.ac {
-        --v-color: theme('colors.neutral.100');
+        --v-color: theme('colors.gbase.100');
         &:not(.macos) {
-          --v-color: theme('colors.light.200');
+          --v-color: theme('colors.gbase.50');
           @media (prefers-color-scheme: dark) {
-            --v-color: theme('colors.neutral.900');
+            --v-color: theme('colors.gbase.800');
           }
-          @apply bg-light-200 dark:bg-neutral-900;
+          @apply bg-gbase-50 dark:bg-gbase-800;
         }
+
         @media (prefers-color-scheme: dark) {
-          --v-color: theme('colors.neutral.900');
+          --v-color: theme('colors.gbase.800');
         }
-        @apply bg-neutral-100 dark:bg-neutral-900;
+
+        @apply bg-gbase-100 dark:bg-gbase-800;
         /* background-color: var(--bg-color1); */
         padding-top: var(--icon-padding);
         position: sticky;

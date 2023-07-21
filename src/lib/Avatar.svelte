@@ -16,36 +16,25 @@
   .main {
     font-size: var(--ava-title);
     border-radius: var(--inner-radius-size);
-    @apply bg-brand-50/50
-    dark:bg-brand-950/50
-    transition-all
-    duration-300
-    overflow-hidden
-    p-0 lh-100%
-    grid-items-center
-    flex flex-justify-center
-    aspect-ratio-square w-full
-    b-none select-none;
-    &:not(.macos) {
-      @apply bg-brand-200/40 dark:bg-brand-950/50;
-    }
+    transition: all var(--transition);
 
-    &:hover {
-      @apply bg-brand-200 dark:bg-brand-800 cursor-pointer;
-      &:not(.macos) {
-        @apply bg-brand-200 dark:bg-brand-800;
-      }
-    }
+    @apply transition-all duration-300;
+    @apply flex flex-justify-center;
+    @apply overflow-hidden p-0 lh-100% grid-items-center aspect-ratio-square w-full b-none select-none;
+    @apply cursor-pointer;
+    @apply bg-gbase-100 dark:bg-gbase-500;
+    @apply hover:bg-brand-200 hover:dark:bg-brand-700;
 
     & > img {
       @apply w-full h-full b-rounded-[var(--inner-radius-size)];
     }
 
     & > span {
-      @apply text-brand-400 transition-all w-full text-center [font-size:60%];
-    }
-    &:hover > span {
-      @apply transition-all text-brand-200;
+      @apply text-brand-300;
+      @apply transition-all w-full text-center;
+      font-size: 60%;
+
+      @apply hover:text-brand-500 hover:dark:text-brand-300;
     }
   }
 </style>

@@ -62,10 +62,6 @@
   }
 
   .main-page {
-    @apply bg-neutral-50 dark:bg-neutral-900;
-    &:not(.macos) {
-      @apply bg-light-300 dark:bg-neutral-900;
-    }
     /* background-color: var(--bg-color1); */
     width: calc(100% - var(--side-width));
     box-sizing: border-box;
@@ -73,7 +69,16 @@
     transition: all var(--transition);
   }
 
+  main.macos {
+    .main-page {
+      @apply bg-gbase-50 dark:bg-gbase-800;
+    }
+  }
+
   main:not(.macos) {
+    .main-page {
+      @apply bg-light-300 dark:bg-gbase-800;
+    }
     .main-page.ov {
       border-top-left-radius: var(--radius-size);
     }

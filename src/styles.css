@@ -15,7 +15,9 @@ html {
     'Segoe UI Symbol',
     'Noto Color Emoji';
 
-  @apply [&[data-set-background]]:bg-gbase-100;
+  &[data-set-background] {
+    @apply bg-gbase-200 dark:bg-gbase-600;
+  }
 
   --transition: 200ms;
 
@@ -34,10 +36,6 @@ body,
 #app {
   height: 100%;
   width: 100%;
-}
-
-#app {
-  /* overflow: clip; */
 }
 
 html {
