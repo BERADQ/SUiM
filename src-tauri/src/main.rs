@@ -1,7 +1,10 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-mod devtools;
+mod dev;
+mod io;
+mod mac_os;
+mod windows;
 
 use std::alloc::System;
 
@@ -10,75 +13,11 @@ static A: System = System;
 
 use base64::{engine::general_purpose, Engine as _};
 use image::DynamicImage;
-use std::fs::{create_dir_all, OpenOptions};
+use std::fs::OpenOptions;
 use std::io::{prelude::*, Cursor};
-use std::path::Path;
 use tauri::Manager;
 
-// use window_shadows::set_shadow;
-
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-
-#[tauri::command]
-fn get_file(path: String, def: String) -> Result<String, ()> {
-    let parent_path = Path::new(&path).parent().expect("ERR:PARENT_PATH");
-    if !parent_path.exists() {
-        create_dir_all(parent_path).expect("ERR:CREATE_DIR");
-    }
-    let mut file = OpenOptions::new()
-        .read(true)
-        .write(true)
-        .create(true)
-        .open(&path)
-        .expect("ERR:OPEN_FILE");
-    let mut file_content = String::new();
-    return if let Ok(_) = file.read_to_string(&mut file_content) {
-        if file_content.is_empty() {
-            if let Err(_) = file.write_all(&def.as_bytes()) {
-                eprint!("ERR:WRIT_FILE")
-            } else {
-                return Ok(def);
-            }
-        }
-        Ok(file_content)
-    } else {
-        Err(())
-    };
-}
-
-#[tauri::command]
-fn write_file(path: String, content: String) -> Result<(), ()> {
-    let parent_path = Path::new(&path).parent().expect("ERR:PARENT_PATH");
-    if !parent_path.exists() {
-        create_dir_all(parent_path).expect("ERR:CREATE_DIR");
-    }
-    let mut file = OpenOptions::new()
-        .read(true)
-        .create(true)
-        .open(&path)
-        .expect("ERR:OPEN_FILE");
-    if let Err(_) = file.write_all(&content.as_bytes()) {
-        return Err(());
-    }
-    Ok(())
-}
-#[tauri::command]
-async fn is_windows10() -> Result<bool, String> {
-    let info = os_info::get();
-    let os_version = info.version();
-    match os_version {
-        os_info::Version::Semantic(nt, _, fix) => {
-            return if nt >= &10 && fix >= &22000 {
-                Ok(false)
-            } else {
-                Ok(true)
-            };
-        }
-        _ => {
-            panic!("unknown windows version!")
-        }
-    }
-}
 
 #[tauri::command]
 async fn image_base64(path: String) -> Result<String, String> {
@@ -131,43 +70,21 @@ fn main() {
 
             #[cfg(target_os = "macos")]
             {
-                use window_vibrancy::{apply_vibrancy, NSVisualEffectMaterial};
-
-                apply_vibrancy(&window, NSVisualEffectMaterial::Sidebar, None, None)
-                    .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
+                mac_os::on_created(app, window);
             }
 
             #[cfg(target_os = "windows")]
             {
-                use window_vibrancy::{apply_blur, apply_mica};
-
-                let info = os_info::get();
-                let os_version = info.version();
-                match os_version {
-                    os_info::Version::Semantic(nt, _, fix) => {
-                        if nt >= &10 && fix >= &22000 {
-                            apply_mica(&window, None).unwrap();
-                        } else if nt >= &10 {
-                            // nothing
-                        } else {
-                            panic!("unknown windows version! info: {}", info)
-                        }
-                    }
-                    _ => {
-                        panic!("unknown windows version!")
-                    }
-                }
-
-                window.set_decorations(true).unwrap();
+                windows::on_created(app, window)
             }
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
-            devtools::open_devtools,
-            get_file,
-            write_file,
+            dev::open_devtools,
+            io::get_file,
+            io::write_file,
             image_base64,
-            is_windows10
+            windows::is_windows10
         ])
         .run(tauri::generate_context!())
         .unwrap();
