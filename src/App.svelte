@@ -76,9 +76,6 @@
   }
 
   main:not(.macos) {
-    .main-page {
-      @apply bg-light-300 dark:bg-gbase-800;
-    }
     .main-page.ov {
       border-top-left-radius: var(--radius-size);
     }

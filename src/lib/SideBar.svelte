@@ -78,7 +78,7 @@
       overflow: auto;
 
       &:hover::-webkit-scrollbar-thumb {
-        @apply bg-brand-400 dark:bg-brand-700;
+        @apply bg-brand-400 dark:bg-gbase-500;
         @apply transition-all;
       }
 
@@ -88,7 +88,7 @@
 
       &::-webkit-scrollbar-thumb {
         @apply transition-all;
-        @apply bg-brand-400/20 dark:bg-brand-700/20;
+        @apply bg-brand-400/20 dark:bg-gbase-900/20;
         @apply rounded-full;
       }
 
