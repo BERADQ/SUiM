@@ -3,6 +3,7 @@
   import Topbar from './lib/Topbar.svelte'
   import BasePage from './page/BasePage.svelte'
   import NewCard from './page/NewCard.svelte'
+  import Settings from './page/Settings.svelte'
 
   import figure from './stores/Figure'
   import { get } from 'svelte/store'
@@ -37,7 +38,11 @@
       {/if}
 
       <BasePage {title}>
-        <NewCard />
+        {#if a_count === -1}
+          <Settings />
+        {:else}
+          <NewCard />
+        {/if}
       </BasePage>
     </div>
   </div>

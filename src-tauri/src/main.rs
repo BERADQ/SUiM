@@ -1,6 +1,8 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod devtools;
+
 use std::alloc::System;
 
 #[global_allocator]
@@ -12,6 +14,7 @@ use std::fs::{create_dir_all, OpenOptions};
 use std::io::{prelude::*, Cursor};
 use std::path::Path;
 use tauri::Manager;
+
 // use window_shadows::set_shadow;
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
@@ -125,10 +128,6 @@ fn main() {
     tauri::Builder::default()
         .setup(|app| {
             let window = app.get_window("main").unwrap();
-            #[cfg(debug_assertions)]
-            {
-                window.open_devtools();
-            }
 
             #[cfg(target_os = "macos")]
             {
@@ -164,6 +163,7 @@ fn main() {
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
+            devtools::open_devtools,
             get_file,
             write_file,
             image_base64,
