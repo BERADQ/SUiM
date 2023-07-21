@@ -16,9 +16,16 @@
   .main {
     font-size: var(--ava-title);
     border-radius: var(--inner-radius-size);
-    transition: all var(--transition);
-
-    @apply bg-brand-50/50 dark:bg-brand-950/50 overflow-hidden p-0 lh-100% grid-items-center flex flex-justify-center aspect-ratio-square w-100% b-none select-none;
+    @apply bg-brand-50/50
+    dark:bg-brand-950/50
+    transition-all
+    duration-300
+    overflow-hidden
+    p-0 lh-100%
+    grid-items-center
+    flex flex-justify-center
+    aspect-ratio-square w-full
+    b-none select-none;
     &:not(.macos) {
       @apply bg-brand-200/40 dark:bg-brand-950/50;
     }
@@ -31,22 +38,14 @@
     }
 
     & > img {
-      width: 100%;
-      height: 100%;
-      image-rendering: crisp-edges;
-      border-radius: var(--inner-radius-size);
+      @apply w-full h-full b-rounded-[var(--inner-radius-size)];
     }
 
     & > span {
-      @apply text-brand-400;
-      @apply transition-all;
-      width: 100%;
-      text-align: center;
-      font-size: 60%;
+      @apply text-brand-400 transition-all w-full text-center [font-size:60%];
     }
     &:hover > span {
-      @apply transition-all;
-      @apply text-brand-500;
+      @apply transition-all text-brand-200;
     }
   }
 </style>
