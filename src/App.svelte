@@ -63,16 +63,11 @@
 
   .main-page {
     /* background-color: var(--bg-color1); */
+    @apply bg-gbase-50 dark:bg-gbase-800;
     width: calc(100% - var(--side-width));
     box-sizing: border-box;
     padding: var(--main-border);
     transition: all var(--transition);
-  }
-
-  main.macos {
-    .main-page {
-      @apply bg-gbase-50 dark:bg-gbase-800;
-    }
   }
 
   main:not(.macos) {
