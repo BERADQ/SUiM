@@ -24,18 +24,18 @@
 </script>
 
 <main class={`container ${platform}`}>
-                              <Topbar/>
-    <div class="fv">
+  <!-- <Topbar /> -->
+  <div class="fv">
     <SideBar onchange={change_page} />
     <div
       class={`main-page ${a_count === -1 ? '' : 'ov'}`}
       style="position: relative">
-      {#if platform === 'macos'}
+      <!-- {#if platform === 'macos'} -->
         <div
           data-tauri-drag-region
           style="height: 1.7em; width: 100%; position: absolute; top: 0; left: 0 margin-left: calc(var(--main-border) * -0.5); right: 0">
         </div>
-      {/if}
+      <!-- {/if} -->
 
       <BasePage {title}>
         {#if a_count === -1}
@@ -54,9 +54,6 @@
   }
 
   .fv {
-    &:not(.macos){
-    height: calc(100% - var(--topbar-height));
-    }
     height: 100%;
     width: 100%;
     /* background-color: transparent; */
@@ -70,11 +67,5 @@
     box-sizing: border-box;
     padding: var(--main-border);
     transition: all var(--transition);
-  }
-
-  main:not(.macos) {
-    .main-page.ov {
-      border-top-left-radius: var(--radius-size);
-    }
   }
 </style>

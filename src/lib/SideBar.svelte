@@ -83,13 +83,13 @@
       }
 
       &::-webkit-scrollbar {
-        @apply w-[calc(var(--icon-padding)-1px)] h-full bg-transparent;
+        @apply w-[calc(var(--icon-padding)-2px)] h-full bg-transparent;
       }
 
       &::-webkit-scrollbar-thumb {
         @apply transition-all;
         @apply bg-brand-400/20 dark:bg-gbase-900/20;
-        @apply rounded-full;
+        @apply border-rounded-r-[calc(var(--icon-padding)-2px)]
       }
 
       direction: rtl;
@@ -151,6 +151,7 @@
         padding-bottom: 0;
         margin-bottom: 0;
         z-index: 3;
+        margin-top: var(--icon-padding);
 
         &::before {
           z-index: -1;
