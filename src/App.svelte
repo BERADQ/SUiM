@@ -54,9 +54,6 @@
     @apply h-full;
 
     &:not(.macos) {
-      .fv {
-        height: calc(100% - var(--topbar-height));
-      }
       .main-page.ov {
         border-top-left-radius: var(--radius-size);
       }
