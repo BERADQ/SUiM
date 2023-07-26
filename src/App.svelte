@@ -24,8 +24,8 @@
 </script>
 
 <main class={`container ${platform}`}>
-  <!--  <Topbar/>-->
-  <div class="fv">
+                              <Topbar/>
+    <div class="fv">
     <SideBar onchange={change_page} />
     <div
       class={`main-page ${a_count === -1 ? '' : 'ov'}`}
@@ -54,7 +54,9 @@
   }
 
   .fv {
-    /*height: calc(100% - var(--topbar-height));*/
+    &:not(.macos){
+    height: calc(100% - var(--topbar-height));
+    }
     height: 100%;
     width: 100%;
     /* background-color: transparent; */

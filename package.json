@@ -17,6 +17,7 @@
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
+    "@iconify-json/mingcute": "^1.1.7",
     "@sveltejs/vite-plugin-svelte": "^2.0.0",
     "@tauri-apps/cli": "^1.4.0",
     "@tsconfig/svelte": "^3.0.0",
