@@ -3,6 +3,7 @@
   import PlusButton from './PlusButton.svelte'
   import figure from '../stores/Figure'
   import MainAvatar from './MainAvatar.svelte'
+  import { OS } from '../common'
 
   export let onchange: (a_count: number) => void
 
@@ -20,7 +21,7 @@
 </script>
 
 <div class={`main ${a_count === -1 ? '' : 'ov'} ${platform}`}>
-  {#if platform === 'macos'}
+  {#if platform === OS.MacOS}
     <div style="padding-top: 2em"></div>
   {/if}
   <div class={`box main-box ${a_count === -1 ? 'ac' : ''}`}>

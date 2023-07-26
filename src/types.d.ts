@@ -3,3 +3,7 @@ declare interface Figure {
   avatar: string
   describes: string
 }
+
+interface ImportMetaEnv {
+  TAURI_PLATFORM: OS
+}

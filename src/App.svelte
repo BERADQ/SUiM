@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { OS } from './common'
   import SideBar from './lib/SideBar.svelte'
   import Topbar from './lib/Topbar.svelte'
   import BasePage from './page/BasePage.svelte'
@@ -50,9 +51,17 @@
 
 <style lang="postcss">
   main {
-    height: 100%;
-  }
+    @apply h-full;
 
+    &:not(.macos) {
+      .fv {
+        height: calc(100% - var(--topbar-height));
+      }
+      .main-page.ov {
+        border-top-left-radius: var(--radius-size);
+      }
+    }
+  }
   .fv {
     height: 100%;
     width: 100%;
