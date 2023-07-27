@@ -1,7 +1,6 @@
 <script lang="ts">
   import { OS } from './common'
   import SideBar from './lib/SideBar.svelte'
-  import Topbar from './lib/Topbar.svelte'
   import BasePage from './page/BasePage.svelte'
   import NewCard from './page/NewCard.svelte'
   import Settings from './page/Settings.svelte'
@@ -52,12 +51,6 @@
 <style lang="postcss">
   main {
     @apply h-full;
-
-    &:not(.macos) {
-      .main-page.ov {
-        border-top-left-radius: var(--radius-size);
-      }
-    }
   }
   .fv {
     height: 100%;
