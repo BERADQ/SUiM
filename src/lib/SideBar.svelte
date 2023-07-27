@@ -21,7 +21,7 @@
 
 <div class={`main ${a_count === -1 ? '' : 'ov'} ${platform}`}>
   {#if platform === 'macos'}
-    <div style="padding-top: 2em"></div>
+    <div style="padding-top: 1.7em"></div>
   {/if}
   <div class={`box main-box ${a_count === -1 ? 'ac' : ''}`}>
     <MainAvatar
