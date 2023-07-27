@@ -24,8 +24,10 @@
 </script>
 
 <main class={`container ${platform}`}>
-                              <Topbar/>
-    <div class="fv">
+  {#if platform !== 'macos'}
+    <Topbar />
+  {/if}
+  <div class="fv">
     <SideBar onchange={change_page} />
     <div
       class={`main-page ${a_count === -1 ? '' : 'ov'}`}
@@ -50,31 +52,28 @@
 
 <style lang="postcss">
   main {
-    height: 100%;
-  }
+    @apply h-full;
 
-  .fv {
-    &:not(.macos){
-    height: calc(100% - var(--topbar-height));
+    &:not(.macos) {
+      .fv {
+        height: calc(100% - var(--topbar-height));
+      }
+      .main-page.ov {
+        border-top-left-radius: var(--radius-size);
+      }
     }
-    height: 100%;
-    width: 100%;
-    /* background-color: transparent; */
-    display: flex;
-  }
 
-  .main-page {
-    /* background-color: var(--bg-color1); */
-    @apply bg-gbase-50 dark:bg-gbase-800;
-    width: calc(100% - var(--side-width));
-    box-sizing: border-box;
-    padding: var(--main-border);
-    transition: all var(--transition);
-  }
+    .fv {
+      @apply w-full h-full flex;
+    }
 
-  main:not(.macos) {
-    .main-page.ov {
-      border-top-left-radius: var(--radius-size);
+    .main-page {
+      @apply bg-gbase-50 dark:bg-gbase-800;
+      @apply box-border;
+
+      width: calc(100% - var(--side-width));
+      padding: var(--main-border);
+      transition: all var(--transition);
     }
   }
 </style>
