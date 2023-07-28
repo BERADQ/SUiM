@@ -17,3 +17,6 @@ document.oncontextmenu = () => false
 //       .querySelector('html').toggleAttribute('data-set-background')
 //   }
 // })
+if (import.meta.env.TAURI_PLATFORM != 'macos') {
+  document.querySelector('html').toggleAttribute('data-set-background')
+}
