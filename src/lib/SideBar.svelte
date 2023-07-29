@@ -22,7 +22,7 @@
 
 <div class={`main ${a_count === -1 ? '' : 'ov'} ${platform}`}>
   {#if platform === OS.MacOS}
-    <div style="padding-top: 2em"></div>
+    <div style="padding-top: 1.7em"></div>
   {/if}
   <div class={`box main-box ${a_count === -1 ? 'ac' : ''}`}>
     <MainAvatar
@@ -90,7 +90,7 @@
       &::-webkit-scrollbar-thumb {
         @apply transition-all;
         @apply bg-brand-400/20 dark:bg-gbase-900/20;
-        @apply border-rounded-r-[calc(var(--icon-padding)-2px)]
+        @apply border-rounded-r-[calc(var(--icon-padding)-2px)];
       }
 
       direction: rtl;
