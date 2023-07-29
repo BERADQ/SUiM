@@ -17,7 +17,7 @@ html {
 
   @apply bg-gbase-300/30 dark:bg-brand-400/30;
   &[data-set-background] {
-    @apply bg-gbase-200 dark:bg-gbase-600;
+    @apply bg-gbase-200 dark:bg-gbase-700;
   }
 
   --transition: 200ms;
