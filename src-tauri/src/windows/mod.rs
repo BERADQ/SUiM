@@ -20,6 +20,7 @@ pub async fn is_windows10() -> Result<bool, String> {
 }
 
 pub fn on_created(_app: &mut tauri::App, window: tauri::Window) {
-    apply_acrylic(&window, None).unwrap();
+    //如果你的系统版本符合要求，请取消注释该行
+    //apply_acrylic(&window, None).unwrap();
     window_shadows::set_shadow(&window, true).unwrap();
 }
