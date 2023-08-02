@@ -729,6 +729,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.17.1.tgz#84c32903bf3a09f7878c391d31ff08f6fe7d8335"
   integrity sha512-xlR1jahfizdplZYRU59JlUx9uzF1ARa8jbhM11ccpCJya8kvos5jwdm2ZAgxSCwOl0fq21svP18EVwPBXMQudw==
 
+"@types/pangu@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/pangu/-/pangu-4.0.0.tgz#ba72c8f1df7282b4932b0d09b581d8e8bd251d31"
+  integrity sha512-da3b6P7QDH41VdfF2xRE8/KgL06nX3RawfiIMAvJ/sYzLWQCQtxc+B3qWVtrIlrNlSgV/e1oG2SZYUpN6gvmhQ==
+
 "@types/pug@^2.0.6":
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/@types/pug/-/pug-2.0.6.tgz#f830323c88172e66826d0bde413498b61054b5a6"
@@ -1891,6 +1896,11 @@ p-locate@^5.0.0:
   integrity sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==
   dependencies:
     p-limit "^3.0.2"
+
+pangu@^4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/pangu/-/pangu-4.0.7.tgz#2a40347733b004a040d011de460cc313c10391c9"
+  integrity sha512-weZKJIwwy5gjt4STGVUH9bix3BGk7wZ2ahtIypwe3e/mllsrIZIvtfLx1dPX56GcpZFOCFKmeqI1qVuB9enRzA==
 
 parent-module@^1.0.0:
   version "1.0.1"

@@ -1,6 +1,8 @@
 <script lang="ts">
   import Avatar from './Avatar.svelte'
+  import pangu from 'pangu'
   export let content: string
+  $: content = pangu.spacing(content)
 </script>
 
 <div id="mainbox" class="grid">
