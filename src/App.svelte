@@ -8,12 +8,12 @@
   import figure from './stores/Figure'
   import { get } from 'svelte/store'
 
-  let title
-  let a_count
+  let title: string
+  let a_count: number
   const change_page = (count: number) => {
     a_count = count
     if (count === -1 || count === -2) {
-      title = count === -1 ? 'Setting' : 'Add'
+      title = count === -1 ? 'Settings' : 'Add'
     } else {
       title = get(figure)[count].name
       console.log(title)

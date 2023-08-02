@@ -4,16 +4,19 @@
 </script>
 
 <div class="flex flex-content-center justify-end h-full">
-  <div class="h-full box-border mt3px mb3px filter-drop-shadow flex-row w-full" data-tauri-drag-region></div>
+  <div
+    class="h-full box-border mt3px mb3px filter-drop-shadow flex-row w-full"
+    data-tauri-drag-region>
+  </div>
   <button
-    class="i cb"
+    class="cb"
     on:click={() => {
       appWindow.minimize()
     }}
     ><div class="i-mingcute:minimize-fill dark:text-light text-dark"></div>
   </button>
   <button
-    class="b cb"
+    class="cb"
     on:click={() => {
       appWindow.toggleMaximize()
     }}
@@ -22,6 +25,7 @@
   <button
     class="x cb"
     on:click={() => {
+      appWindow.close()
       exit()
     }}
     ><div class="i-mingcute:close-fill dark:text-light text-dark"></div>
@@ -42,7 +46,8 @@
     align-items: center;
 
     &:hover {
-      background-color: #eeeeee33;
+      background-color: #9993;
+      @apply dark:bg-[#eee3];
     }
 
     &.x:hover {
