@@ -1,10 +1,10 @@
 <script lang="ts">
+  import { OS } from './common'
   import SideBar from './lib/SideBar.svelte'
-  import Topbar from './lib/Topbar.svelte'
   import BasePage from './page/BasePage.svelte'
   import NewCard from './page/NewCard.svelte'
   import Settings from './page/Settings.svelte'
-
+  import WinController from './lib/WinController.svelte'
   import figure from './stores/Figure'
   import { get } from 'svelte/store'
 
@@ -24,19 +24,18 @@
 </script>
 
 <main class={`container ${platform}`}>
-  <!--  <Topbar/>-->
   <div class="fv">
     <SideBar onchange={change_page} />
     <div
       class={`main-page ${a_count === -1 ? '' : 'ov'}`}
       style="position: relative">
-      {#if platform === 'macos'}
-        <div
-          data-tauri-drag-region
-          style="height: 1.7em; width: 100%; position: absolute; top: 0; left: 0 margin-left: calc(var(--main-border) * -0.5); right: 0">
-        </div>
-      {/if}
-
+      <div class="h-30px w-full absolute top-0 left-0">
+        {#if platform == OS.Windows}
+          <WinController />
+        {:else if platform == OS.MacOS}
+          <div class="h-full w-full" data-tauri-drag-region></div>
+        {/if}
+      </div>
       <BasePage {title}>
         {#if a_count === -1}
           <Settings />
@@ -50,11 +49,9 @@
 
 <style lang="postcss">
   main {
-    height: 100%;
+    @apply h-full;
   }
-
   .fv {
-    /*height: calc(100% - var(--topbar-height));*/
     height: 100%;
     width: 100%;
     /* background-color: transparent; */
@@ -68,11 +65,5 @@
     box-sizing: border-box;
     padding: var(--main-border);
     transition: all var(--transition);
-  }
-
-  main:not(.macos) {
-    .main-page.ov {
-      border-top-left-radius: var(--radius-size);
-    }
   }
 </style>

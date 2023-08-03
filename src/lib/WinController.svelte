@@ -3,51 +3,37 @@
   import { appWindow } from '@tauri-apps/api/window'
 </script>
 
-<div class="ww">
-  <div data-tauri-drag-region class="main"></div>
+<div class="flex flex-content-center justify-end h-full">
+  <div class="h-full box-border mt3px mb3px filter-drop-shadow flex-row w-full" data-tauri-drag-region></div>
   <button
     class="i cb"
     on:click={() => {
       appWindow.minimize()
     }}
-    ><div class="i-mingcute:minimize-fill text-white"></div>
+    ><div class="i-mingcute:minimize-fill dark:text-light text-dark"></div>
   </button>
   <button
     class="b cb"
     on:click={() => {
       appWindow.toggleMaximize()
     }}
-    ><div class="i-mingcute:square-line text-white"></div>
+    ><div class="i-mingcute:square-line dark:text-light text-dark"></div>
   </button>
   <button
     class="x cb"
     on:click={() => {
       exit()
     }}
-    ><div class="i-mingcute:close-fill text-white"></div>
+    ><div class="i-mingcute:close-fill dark:text-light text-dark"></div>
   </button>
 </div>
 
 <style lang="postcss">
-  .ww {
-    background-color: var(--bg-color0);
-    box-sizing: border-box;
-    width: 100%;
-    display: flex;
-  }
-
-  .main {
-    height: calc(var(--topbar-height) - 6px);
-    display: flex;
-    width: 100%;
-    margin: 3px;
-  }
-
   .cb {
     user-select: none;
     transition: all 300ms;
-    width: calc(var(--topbar-height) * 1.3);
-    height: var(--topbar-height);
+    aspect-ratio: 1.3/1;
+    height: 100%;
     background-color: transparent;
     border: none;
     color: #eeeeee;

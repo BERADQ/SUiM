@@ -6,11 +6,6 @@ mod io;
 mod mac_os;
 mod windows;
 
-use std::alloc::System;
-
-#[global_allocator]
-static A: System = System;
-
 use base64::{engine::general_purpose, Engine as _};
 use image::DynamicImage;
 use std::fs::OpenOptions;
