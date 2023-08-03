@@ -4,6 +4,3 @@ declare interface Figure {
   describes: string
 }
 
-interface ImportMetaEnv {
-  TAURI_PLATFORM: OS
-}
