@@ -27,7 +27,8 @@
     padding: 0;
     overflow: hidden;
     background-color: var(--bg-ac-color0);
-    outline: 2px solid var(--color0);
+    outline: 2px solid;
+    @apply outline-brand-400;
     outline-offset: 2px;
     z-index: 3;
     transition: all var(--transition);
