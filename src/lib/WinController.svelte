@@ -25,7 +25,6 @@
   <button
     class="x cb"
     on:click={() => {
-      appWindow.close()
       exit()
     }}
     ><div class="i-mingcute:close-fill dark:text-light text-dark"></div>

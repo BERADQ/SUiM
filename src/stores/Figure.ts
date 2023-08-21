@@ -2,7 +2,7 @@ import { writable, get, type Writable } from 'svelte/store'
 import { invoke } from '@tauri-apps/api'
 import { resolveResource } from '@tauri-apps/api/path'
 
-const figure: Writable<any[]> = writable([])
+const figure: Writable<Figure[]> = writable([])
 
 resolveResource('figure.json').then((path) => {
   invoke('get_file', {
@@ -11,7 +11,7 @@ resolveResource('figure.json').then((path) => {
   }).then((v: string) => {
     figure.set(JSON.parse(v))
   })
-  figure.subscribe((v: any[]) => {
+  figure.subscribe((v: Figure[]) => {
     if (v == get(figure)) {
       return
     }
