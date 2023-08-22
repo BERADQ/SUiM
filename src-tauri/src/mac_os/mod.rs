@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn on_created(_app: &mut tauri::App, window: tauri::Window) {
     use window_vibrancy::{apply_vibrancy, NSVisualEffectMaterial};
 

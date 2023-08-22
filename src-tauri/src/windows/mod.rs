@@ -3,6 +3,7 @@ use window_shadows;
 use window_vibrancy::apply_acrylic;
 
 #[tauri::command]
+#[allow(dead_code)]
 pub async fn is_windows10() -> Result<bool, String> {
     let info = os_info::get();
     let os_version = info.version();
@@ -20,6 +21,7 @@ pub async fn is_windows10() -> Result<bool, String> {
     }
 }
 
+#[allow(dead_code)]
 pub fn on_created(_app: &mut tauri::App, window: tauri::Window) {
     //如果你的系统版本符合要求，请取消注释该行
     //apply_acrylic(&window, None).unwrap();
@@ -28,7 +30,7 @@ pub fn on_created(_app: &mut tauri::App, window: tauri::Window) {
         os_info::Version::Unknown => todo!(),
         os_info::Version::Semantic(a, _, c) => {
             if a >= &10 && (c < &1903 || c > &22000) {
-                apply_acrylic(&window, None);
+                apply_acrylic(&window, None).unwrap();
             };
         }
         _ => {}
