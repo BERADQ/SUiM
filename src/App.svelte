@@ -5,6 +5,7 @@
   import NewCard from './page/NewCard.svelte'
   import Settings from './page/Settings.svelte'
   import WinController from './lib/WinController.svelte'
+  import Message from './page/Message.svelte'
   import figure from './stores/Figure'
   import { get } from 'svelte/store'
 
@@ -39,8 +40,10 @@
       <BasePage {title}>
         {#if a_count === -1}
           <Settings />
-        {:else}
+        {:else if a_count === -2}
           <NewCard />
+        {:else}
+          <Message />
         {/if}
       </BasePage>
     </div>
